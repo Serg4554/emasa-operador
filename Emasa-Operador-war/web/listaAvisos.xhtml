@@ -90,14 +90,9 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Avisos duplicados"/>
-                        </f:facet>
-                        
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
                             <h:outputText value="Operaciones"/>
                         </f:facet>
+                        <h:commandButton action="#{avisosBean.verOperaciones(aviso)}" value="Operaciones" />
                         <h:commandButton action="#{avisosBean.doEditar(aviso)}" value="Editar" />
                         <h:commandButton action="#{avisosBean.doBorrar(aviso)}" value="Borrar" />
                     </h:column>

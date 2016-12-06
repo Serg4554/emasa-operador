@@ -277,6 +277,11 @@ public class AvisosBean {
         remove(aviso);
         return "listaAvisos";
     }
+    
+    public String verOperaciones(Aviso aviso) {
+        avisoSeleccionado = aviso;
+        return "listaOperaciones";
+    }
 
     private java.util.List<avisows.Aviso> findAll() {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
