@@ -268,6 +268,11 @@ public class AvisosBean {
         
         return "listaAvisos?faces-redirect=true";
     }
+    
+    public String doBorrar(Aviso aviso) {
+        remove(aviso);
+        return "listaAvisos";
+    }
 
     private java.util.List<avisows.Aviso> findAll() {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
@@ -281,5 +286,12 @@ public class AvisosBean {
         // If the calling of port operations may lead to race condition some synchronization is required.
         avisows.AvisoWS port = service.getAvisoWSPort();
         port.create(entity);
+    }
+
+    private void remove(avisows.Aviso entity) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        avisows.AvisoWS port = service.getAvisoWSPort();
+        port.remove(entity);
     }
 }

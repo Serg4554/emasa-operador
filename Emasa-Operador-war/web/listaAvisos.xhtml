@@ -98,10 +98,10 @@
                         <f:facet name="header">
                             <h:outputText value="Operaciones"/>
                         </f:facet>
-                        
+                        <h:commandButton action="#{avisosBean.doBorrar(aviso)}" value="Borrar" />
                     </h:column>
                 </h:dataTable>
-                <h:commandButton action="#{avisosBean.doCrear()}" value="Crear aviso"></h:commandButton>
+                <h:commandButton action="#{avisosBean.doCrear()}" value="Crear aviso" />
             </h:form>
         </f:view>
     </h:body>
