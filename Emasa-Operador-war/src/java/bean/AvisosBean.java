@@ -164,14 +164,6 @@ public class AvisosBean {
     }
     
     public String doGuardar() {
-        try {
-            GregorianCalendar c = new GregorianCalendar();
-            c.setTime(new Date());
-            avisoSeleccionado.setFechacreacion(DatatypeFactory.newInstance().newXMLGregorianCalendar(c));
-        } catch (DatatypeConfigurationException ex) {
-            Logger.getLogger(AvisosBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         if (avisoSeleccionado.getUbicacion() == null || avisoSeleccionado.getUbicacion().trim().isEmpty()) {
             error = "Ubicación inválida";
             return "editarAviso";
@@ -199,6 +191,8 @@ public class AvisosBean {
                 error = "La prioridad debe ser un número";
                 return "editarAviso";
             }
+        } else {
+            avisoSeleccionado.setPrioridad(null);
         }
         
         if(inicioReparacion != null && !inicioReparacion.trim().isEmpty()) {
@@ -213,6 +207,8 @@ public class AvisosBean {
                 error = "El formato de fecha debe ser dd-MM-yyyy";
                 return "editarAviso";
             }
+        } else {
+            avisoSeleccionado.setInicioReparacion(null);
         }
         
         if(finReparacion != null && !finReparacion.trim().isEmpty()) {
@@ -227,6 +223,8 @@ public class AvisosBean {
                 error = "El formato de fecha debe ser dd-MM-yyyy";
                 return "editarAviso";
             }
+        } else {
+            avisoSeleccionado.setFinReparacion(null);
         }
         
         if(latitudGPS != null && !latitudGPS.trim().isEmpty()) {
@@ -249,15 +247,24 @@ public class AvisosBean {
                 error = "La latitud y longitud deben ser numéricos";
                 return "editarAviso";
             }
+        } else {
+            avisoSeleccionado.setPosGPS(null);
         }
         
-        avisows.Usuario _usuario = new avisows.Usuario();
-        _usuario.setEmail(usuarioBean.getUsuario().getEmail());
-        _usuario.setOperador(usuarioBean.getUsuario().isOperador());
-        
-        avisoSeleccionado.setUsuarioemail(_usuario);
-        
         if(avisoSeleccionado.getId() == null) {
+            try {
+                GregorianCalendar c = new GregorianCalendar();
+                c.setTime(new Date());
+                avisoSeleccionado.setFechacreacion(DatatypeFactory.newInstance().newXMLGregorianCalendar(c));
+            } catch (DatatypeConfigurationException ex) {
+                Logger.getLogger(AvisosBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            avisows.Usuario _usuario = new avisows.Usuario();
+            _usuario.setEmail(usuarioBean.getUsuario().getEmail());
+            _usuario.setOperador(usuarioBean.getUsuario().isOperador());
+            avisoSeleccionado.setUsuarioemail(_usuario);
+            
             create(avisoSeleccionado);
         } else {
             edit(avisoSeleccionado);
