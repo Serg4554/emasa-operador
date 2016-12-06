@@ -11,17 +11,17 @@
         <h:form>
             <h:outputText id="error" style="color: red;" value="#{avisosBean.error}" /> <br/>
 
-            Ubicación <h:inputText maxlength="500" value="#{avisosBean.ubicacion}" /> <br/>
-            Estado <h:inputText maxlength="50" value="#{avisosBean.estado}" /> <br/>
-            Observaciones <h:inputText maxlength="10000" value="#{avisosBean.observaciones}" /> <br/>
-            Ubicación técnica <h:inputText maxlength="1000" value="#{avisosBean.ubicacionTecnica}" /> <br/>
+            Ubicación <h:inputText maxlength="500" value="#{avisosBean.avisoSeleccionado.ubicacion}" /> <br/>
+            Estado <h:inputText maxlength="50" value="#{avisosBean.avisoSeleccionado.estado}" /> <br/>
+            Observaciones <h:inputText maxlength="10000" value="#{avisosBean.avisoSeleccionado.observaciones}" /> <br/>
+            Ubicación técnica <h:inputText maxlength="1000" value="#{avisosBean.avisoSeleccionado.ubicacionTecnica}" /> <br/>
             Prioridad <h:inputText maxlength="1" value="#{avisosBean.prioridad}" /> <br/>
             Inicio reparación <h:inputText value="#{avisosBean.inicioReparacion}" /> <br/>
             Fin reparación <h:inputText value="#{avisosBean.finReparacion}" /> <br/>
             Posición GPS
             <h:inputText a:placeholder="Latitud" value="#{avisosBean.latitudGPS}" />
             <h:inputText a:placeholder="Longitud" value="#{avisosBean.longitudGPS}" /> <br/>
-            Tipo <h:inputText maxlength="100" value="#{avisosBean.tipo}" /> <br/>
+            Tipo <h:inputText maxlength="100" value="#{avisosBean.avisoSeleccionado.tipo}" /> <br/>
             <h:commandButton value="Guardar" action="#{avisosBean.doGuardar()}">
                 <f:ajax execute="@form" render="error"/>
             </h:commandButton>
