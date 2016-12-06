@@ -1,12 +1,31 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Nuevo aviso</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <h:outputText id="error" style="color: red;" value="#{avisosBean.error}" /> <br/>
+
+            Ubicación <h:inputText maxlength="500" value="#{avisosBean.ubicacion}" /> <br/>
+            Estado <h:inputText maxlength="50" value="#{avisosBean.estado}" /> <br/>
+            Observaciones <h:inputText maxlength="10000" value="#{avisosBean.observaciones}" /> <br/>
+            Ubicación técnica <h:inputText maxlength="1000" value="#{avisosBean.ubicacionTecnica}" /> <br/>
+            Prioridad <h:inputText maxlength="1" value="#{avisosBean.prioridad}" /> <br/>
+            Inicio reparación <h:inputText value="#{avisosBean.inicioReparacion}" /> <br/>
+            Fin reparación <h:inputText value="#{avisosBean.finReparacion}" /> <br/>
+            Posición GPS
+            <h:inputText a:placeholder="Latitud" value="#{avisosBean.latitudGPS}" />
+            <h:inputText a:placeholder="Longitud" value="#{avisosBean.longitudGPS}" /> <br/>
+            Tipo <h:inputText maxlength="100" value="#{avisosBean.tipo}" /> <br/>
+            <h:commandButton value="Guardar" action="#{avisosBean.doGuardar()}">
+                <f:ajax execute="@form" render="error"/>
+            </h:commandButton>
+        </h:form>
     </h:body>
 </html>
 
