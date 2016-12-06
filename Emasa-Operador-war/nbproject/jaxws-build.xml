@@ -28,7 +28,7 @@
     </target>
     <target name="wsimport-client-AvisoWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/AvisoWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AvisoWS" destdir="${build.generated.dir}/jax-wsCache/AvisoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AvisoWS/wsdl/localhost_8080/Emasa-Soap-war/AvisoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Emasa-Soap-war/AvisoWS?wsdl" xnocompile="true" xendorsed="true" package="avisoWS">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AvisoWS" destdir="${build.generated.dir}/jax-wsCache/AvisoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AvisoWS/wsdl/localhost_8080/Emasa-Soap-war/AvisoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Emasa-Soap-war/AvisoWS?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/AvisoWS/wsdl/localhost_8080/Emasa-Soap-war/AvisoWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/AvisoWS"/>
         </wsimport>
@@ -39,12 +39,12 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-AvisoWS" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/avisoWS"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/avisows"/>
         <delete dir="${build.generated.dir}/jax-wsCache/AvisoWS"/>
     </target>
     <target name="wsimport-client-OperacionWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/OperacionWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OperacionWS" destdir="${build.generated.dir}/jax-wsCache/OperacionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OperacionWS/wsdl/localhost_8080/Emasa-Soap-war/OperacionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Emasa-Soap-war/OperacionWS?wsdl" xnocompile="true" xendorsed="true" package="operacionWS">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OperacionWS" destdir="${build.generated.dir}/jax-wsCache/OperacionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OperacionWS/wsdl/localhost_8080/Emasa-Soap-war/OperacionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Emasa-Soap-war/OperacionWS?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/OperacionWS/wsdl/localhost_8080/Emasa-Soap-war/OperacionWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/OperacionWS"/>
         </wsimport>
@@ -55,8 +55,24 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-OperacionWS" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/operacionWS"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/operacionws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/OperacionWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-AvisoWS, wsimport-client-OperacionWS"/>
+    <target name="wsimport-client-UsuarioWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/UsuarioWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UsuarioWS" destdir="${build.generated.dir}/jax-wsCache/UsuarioWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UsuarioWS/wsdl/localhost_8080/Emasa-Soap-war/UsuarioWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Emasa-Soap-war/UsuarioWS?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/UsuarioWS/wsdl/localhost_8080/Emasa-Soap-war/UsuarioWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/UsuarioWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/UsuarioWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-UsuarioWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/usuariows"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/UsuarioWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-AvisoWS, wsimport-client-OperacionWS, wsimport-client-UsuarioWS"/>
 </project>

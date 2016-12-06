@@ -1,12 +1,103 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{avisosBean.listaAvisos}" var="aviso" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fecha creación"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.fechacreacion}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ubicación"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.ubicacion}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.estado}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Observaciones"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.observaciones}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ubicación técnica"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.ubicacionTecnica}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Prioridad"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.prioridad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Inicio reparación"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.inicioReparacion}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fin reparación"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.finReparacion}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Posición GPS"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.posGPS}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.tipo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email usuario"/>
+                        </f:facet>
+                        <h:outputText value="#{aviso.usuarioemail.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Avisos duplicados"/>
+                        </f:facet>
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Operaciones"/>
+                        </f:facet>
+                        
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton action="#{avisosBean.doCrear()}" value="Crear aviso"></h:commandButton>
+            </h:form>
+        </f:view>
     </h:body>
 </html>
 

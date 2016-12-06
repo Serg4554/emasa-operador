@@ -5,7 +5,7 @@
     <client name="AvisoWS">
       <wsdl-url>http://localhost:8080/Emasa-Soap-war/AvisoWS?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/Emasa-Soap-war/AvisoWS.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">avisoWS</package-name>
+      <package-name>avisows</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -32,16 +32,12 @@
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>avisoWS</wsimport-option-value>
-        </wsimport-option>
       </wsimport-options>
     </client>
     <client name="OperacionWS">
       <wsdl-url>http://localhost:8080/Emasa-Soap-war/OperacionWS?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/Emasa-Soap-war/OperacionWS.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">operacionWS</package-name>
+      <package-name>operacionws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -68,9 +64,37 @@
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="UsuarioWS">
+      <wsdl-url>http://localhost:8080/Emasa-Soap-war/UsuarioWS?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/Emasa-Soap-war/UsuarioWS.wsdl</local-wsdl-file>
+      <package-name>usuariows</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
         <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>operacionWS</wsimport-option-value>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/Emasa-Soap-war/UsuarioWS?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>
