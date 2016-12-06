@@ -20,7 +20,9 @@
                         <f:facet name="header">
                             <h:outputText value="Fecha creación"/>
                         </f:facet>
-                        <h:outputText value="#{aviso.fechacreacion}"/>
+                        <h:outputText value="#{aviso.fechacreacion.toGregorianCalendar().time}">
+                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:outputText>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -56,13 +58,17 @@
                         <f:facet name="header">
                             <h:outputText value="Inicio reparación"/>
                         </f:facet>
-                        <h:outputText value="#{aviso.inicioReparacion}"/>
+                        <h:outputText value="#{aviso.inicioReparacion.toGregorianCalendar().time}">
+                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:outputText>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Fin reparación"/>
                         </f:facet>
-                        <h:outputText value="#{aviso.finReparacion}"/>
+                        <h:outputText value="#{aviso.finReparacion.toGregorianCalendar().time}">
+                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:outputText>
                     </h:column>
                     <h:column>
                         <f:facet name="header">

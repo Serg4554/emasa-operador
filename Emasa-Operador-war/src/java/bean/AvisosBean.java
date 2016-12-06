@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -29,8 +30,11 @@ import javax.xml.ws.WebServiceRef;
 @RequestScoped
 public class AvisosBean {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/Emasa-Soap-war/AvisoWS.wsdl")
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/Emasa-Soap-war/AvisoWS?WSDL")
     private AvisoWS_Service service;
+    
+    @ManagedProperty(value="#{usuarioBean}")
+    private UsuarioBean usuarioBean;
     
     private String ubicacion;
     private String estado;
@@ -142,6 +146,10 @@ public class AvisosBean {
     public String getError() {
         return error;
     }
+
+    public void setUsuarioBean(UsuarioBean usuarioBean) {
+        this.usuarioBean = usuarioBean;
+    }
     
     public String doCrear() {
         return "nuevoAviso";
@@ -251,8 +259,8 @@ public class AvisosBean {
         }
         
         avisows.Usuario _usuario = new avisows.Usuario();
-        _usuario.setEmail("Sergio.357.95@gmail.com");
-        _usuario.setOperador(true);
+        _usuario.setEmail(usuarioBean.getUsuario().getEmail());
+        _usuario.setOperador(usuarioBean.getUsuario().isOperador());
         
         aviso.setUsuarioemail(_usuario);
         

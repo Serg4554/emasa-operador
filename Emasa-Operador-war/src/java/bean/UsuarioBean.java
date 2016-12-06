@@ -20,10 +20,10 @@ import usuariows.UsuarioWS_Service;
 @SessionScoped
 public class UsuarioBean {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/Emasa-Soap-war/UsuarioWS.wsdl")
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/Emasa-Soap-war/UsuarioWS?WSDL")
     private UsuarioWS_Service service;
-
     private Usuario usuario;
+    
     /**
      * Creates a new instance of UsuarioBean
      */
@@ -32,7 +32,11 @@ public class UsuarioBean {
     
     @PostConstruct
     public void init() {
-        usuario = find(2);
+        usuario = find("Sergio.357.95@gmail.com");
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
     }
 
     private Usuario find(java.lang.Object id) {
@@ -40,10 +44,6 @@ public class UsuarioBean {
         // If the calling of port operations may lead to race condition some synchronization is required.
         usuariows.UsuarioWS port = service.getUsuarioWSPort();
         return port.find(id);
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
     }
     
 }
