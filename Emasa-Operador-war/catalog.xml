@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Emasa-Soap-war/AvisoWS?wsdl" uri="src/conf/xml-resources/web-service-references/AvisoWS/wsdl/localhost_8080/Emasa-Soap-war/AvisoWS.wsdl"/>
+    <system systemId="http://localhost:8080/Emasa-Soap-war/AvisoWS?xsd=1" uri="src/conf/xml-resources/web-service-references/AvisoWS/wsdl/localhost_8080/Emasa-Soap-war/AvisoWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Emasa-Soap-war/OperacionWS?wsdl" uri="src/conf/xml-resources/web-service-references/OperacionWS/wsdl/localhost_8080/Emasa-Soap-war/OperacionWS.wsdl"/>
+    <system systemId="http://localhost:8080/Emasa-Soap-war/OperacionWS?xsd=1" uri="src/conf/xml-resources/web-service-references/OperacionWS/wsdl/localhost_8080/Emasa-Soap-war/OperacionWS.xsd_1.xsd"/>
+</catalog>
