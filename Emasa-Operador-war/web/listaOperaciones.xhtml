@@ -30,9 +30,17 @@
                             <f:convertDateTime pattern="dd-MM-yyyy" />
                         </h:outputText>
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Operaciones"/>
+                        </f:facet>
+                        <h:commandButton action="#{operacionesBean.doEditar(operacion)}" value="Editar" />
+                        <h:commandButton action="#{operacionesBean.doBorrar(operacion)}" value="Borrar" />
+                    </h:column>
                     
                 </h:dataTable>
-                <h:commandButton action="#{operacionesBean.doCrear()}" value="Crear aviso" />
+                <h:commandButton action="#{operacionesBean.doCrear()}" value="Crear operación" />
+                <h:commandButton action="listaAvisos?faces-redirect=true" value="Volver" />
             </h:form>
         </f:view>
     </h:body>
