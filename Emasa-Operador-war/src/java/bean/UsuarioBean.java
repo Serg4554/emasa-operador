@@ -32,7 +32,7 @@ public class UsuarioBean {
     
     @PostConstruct
     public void init() {
-        usuario = find("Sergio.357.95@gmail.com");
+        usuario = find("Ejemplo@correo.com");
     }
 
     public Usuario getUsuario() {
